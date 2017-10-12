@@ -10,22 +10,21 @@ RSpec.describe Deck do
     end
 
     describe "#create_deck" do
+      # let(:card)  { double(card(2, :heart)) }
+      # let(:card2) { double card(3, :spade)) }
+
       context "generate 52 cards with values and suits" do
-        it 'makes sure there are 52 total cards with values in the deck' do
+        it 'makes sure there are 52 total cards in the deck' do
           expect(deck.cards.length).to be(52)
         end
-        it 'creates the four suits' do
-          SUITS = [:spade, :club, :heart, :diamond]
-          expect()
+        it 'makes sure that every card is unique' do
+          temp_deck = []
+          deck.each do |card_obj|
+            current_card = [card_obj.value, card_obj.suit]
+            temp_deck << current_card if !temp_deck.include?(current_card)
+          end
 
-        end
-        it 'creates cards values (2-10, J, Q, K, A)' do
-        end
-
-        it 'assign each of the suits to the range of cards (2-Ace)' do
-        end
-
-
+          expect(temp_deck.length).to  eq(deck.length)
       end
     end
 end

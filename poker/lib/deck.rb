@@ -22,7 +22,7 @@ class Deck
   def display_deck
     result = []
 
-    @deck.each do |card|
+    deck.each do |card|
       result << [card.value, card.suit]
     end
 
